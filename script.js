@@ -1,4 +1,5 @@
-let temp1save, temp2save = 0;
+let temp1save,
+  temp2save = 0;
 let weather = {
   apiKey: "e1b292964b3c86ad361260f80c9496e0",
   fetchWeather: function (city) {
@@ -28,8 +29,9 @@ let weather = {
       "https://openweathermap.org/img/wn/" + icon + ".png";
     document.querySelector(".description").innerText = description;
 
-    !document.querySelector("#checkbox").checked ? document.querySelector(".temp").innerText = temp + "℃" :
-    document.querySelector(".temp").innerText = temp2 + "℉";
+    !document.querySelector("#checkbox").checked
+      ? (document.querySelector(".temp").innerText = temp + "℃")
+      : (document.querySelector(".temp").innerText = temp2 + "℉");
     temp1save = temp;
     temp2save = temp2;
 
@@ -61,35 +63,33 @@ document
 weather.fetchWeather("Mumbai");
 
 function onTempChange() {
-  !document.querySelector("#checkbox").checked ? 
-  document.querySelector(".temp").innerText = temp1save + "℃" :
-  document.querySelector(".temp").innerText = temp2save + "℉";
+  !document.querySelector("#checkbox").checked
+    ? (document.querySelector(".temp").innerText = temp1save + "℃")
+    : (document.querySelector(".temp").innerText = temp2save + "℉");
 }
 
-let darkMode = localStorage.getItem('darkMode');
-const darkModeToggle = document.querySelector('.toggle-btn')
+let darkMode = localStorage.getItem("darkMode");
+const darkModeToggle = document.querySelector(".toggle-btn");
 //check if Dark mode is enabled
 // if its enabled turn it off
 // else turn it on
-const enableDarkMode = ()=>{
-document.body.classList.add('darkmode');
-localStorage.setItem('darkMode','enabled')
-}
+const enableDarkMode = () => {
+  document.body.classList.add("darkmode");
+  localStorage.setItem("darkMode", "enabled");
+};
 
-const disableDarkMode = ()=>{
-document.body.classList.remove('darkmode');
-localStorage.setItem('darkMode',null)
-}
+const disableDarkMode = () => {
+  document.body.classList.remove("darkmode");
+  localStorage.setItem("darkMode", null);
+};
 
-
-darkModeToggle.addEventListener('click',()=>{
-  darkMode = localStorage.getItem('darkMode');
-  if (darkMode != 'enabled') {
+darkModeToggle.addEventListener("click", () => {
+  darkMode = localStorage.getItem("darkMode");
+  if (darkMode != "enabled") {
     enableDarkMode();
     console.log(darkMode);
-  }
-  else{
+  } else {
     disableDarkMode();
     console.log(darkMode);
   }
-})
+});
