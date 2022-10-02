@@ -58,7 +58,7 @@ document
     }
   });
 
-weather.fetchWeather("Nashik");
+weather.fetchWeather("Mumbai");
 
 function onTempChange() {
   !document.querySelector("#checkbox").checked ? 
